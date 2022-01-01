@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from './button';
+import './App.css';
+import mainLogo from'./logo.png';
+
 
 class App extends React.Component{
     constructor(props){
@@ -9,7 +12,8 @@ class App extends React.Component{
 
         allInfo: [],
         Name: "",
-        Image: {},
+        ImageOne: {},
+        ImageTwo: [],
         Habitat: "",
         Biology: "",
         Texture: "",
@@ -66,7 +70,8 @@ class App extends React.Component{
       const newAnimal = this.randomChoice()
       this.setState({
         Name: newAnimal["Species Name"],
-        Image: newAnimal['Image Gallery'][0],
+        ImageOne: newAnimal['Image Gallery'][0],
+        ImageTwo: newAnimal['Image Gallery'][1],
         Habitat: newAnimal.Habitat,
         Biology: newAnimal.Biology,
         Texture: `Texture: ${newAnimal.Texture}`,
@@ -96,6 +101,7 @@ class App extends React.Component{
         input = input.toString();
 
           //Replace the stuff in the regular expression to nothing
+          input = input.replace('&nbsp;', '');
     return input.replace( /(<([^>]+)>)/ig, '');
     }
     
@@ -103,24 +109,45 @@ class App extends React.Component{
     
 
     render() {
-
+       
         
 
         return (
-            <div>
-                <h1>Random Fish Info Generator</h1>
-                <Button onClick = {this.handleClick}>
-        </Button>
-        <h2 id='name'>{this.state.Name}</h2>
-        <img src={this.state.Image.src}></img>
-        <section id='habitat'>{this.removeElements(this.state.Habitat)}</section>
-        <p>{this.removeElements(this.state.Biology)}</p> 
-        <p>{this.removeElements(this.state.Status)}</p>
-        <h3>{this.state.Name} {this.state.FoodTitle}</h3>
-          <p>{this.removeElements(this.state.Texture)}</p> 
-          <p>{this.removeElements(this.state.Taste)}</p> 
-        
-            </div>
+
+          <><><div className="titleContainer">
+            <img className="logo" src={mainLogo}></img>
+            <h1 className="mainTitle">Wayward Zoo</h1>
+            <p className="titleExplanation">A randomized educational resource to learn about marine life. Created with the Fishwatch api.</p>
+          </div>
+            <div className="info">
+              <h3 className="callToAction">Click the button below to get the information of a random fish!</h3>
+
+              <div classname='button'>
+                <Button onClick={this.handleClick} ></Button>
+              </div>
+              
+
+              <h2 id='name'>{this.state.Name}</h2>
+
+                <section className='images'>
+                  <img src={this.state.ImageOne.src}></img>
+                  <img src={this.state.ImageTwo.src}></img>
+                </section>
+                
+              <p id='habitat'>{this.removeElements(this.state.Habitat)}</p>
+              <p>{this.removeElements(this.state.Biology)}</p>
+              <p>{this.removeElements(this.state.Status)}</p>
+              <h3>{this.state.Name} {this.state.FoodTitle}</h3>
+              <p>{this.removeElements(this.state.Texture)}</p>
+              <p>{this.removeElements(this.state.Taste)}</p>
+            </div></>
+            <footer>
+              <h4>Here are some useful links!</h4>
+              <section>
+               
+              </section>
+                
+            </footer></>
         )
     }
   }
@@ -131,3 +158,7 @@ class App extends React.Component{
   //<img id='image'src={this.state.Image}></img>
 
   /*Note for future reference, rubber ducking is an incredible tactic for debugging. */
+
+  /* <a href={links.stemWarrior} target='_blank'>STEM Warrior Hacks </a>
+                <a href={links.fishWatch} target='_blank'>FishWatch API</a>
+                <a href={links.github} target='_blank'>My Github</a>*/

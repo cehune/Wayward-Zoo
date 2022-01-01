@@ -29,14 +29,13 @@ class App extends React.Component{
           allInfo: data,
         })
     }
-    
-    
-
 
     /*Essentially the api information is a massive object split with 700+ different objects containing arrays for each fish species. 
     I'm just finding a random number in that object length to get the random fish for our user. The returned variable, choice, gives us 
-    all of the information for a certain type of fish. I had a bit of confusion here because I 
-    thought choice was giving us an index rather than a full array value. */
+    all of the information for a certain type of fish. 
+    
+    I had a bit of confusion here because I thought choice was giving us an index rather than a full array value. */
+
     randomChoice() {
       const newLocal = this.state.allInfo;
       const choice = newLocal[Math.floor(Math.random()*newLocal.length)];
@@ -44,11 +43,14 @@ class App extends React.Component{
     }
     
     /*This sets the state for each specific key value pair using the information given by th api. It takes the randomly generated 
-    array object and uses it's key value pairs. */
+    array object and uses it's key value pairs. 
     
+    My main issue here was that I forgot to add the brackets after call to randomChoice, and some confusion for how to access 
+    the key-value pairs. What helped a lot was to isolate an array object from the api, which was compiled and disorganized. 
+    VSC's auto organizer was extremely helpful, as I could immediately visualize the object. */
+
     handleClick() {
       const newLocal = this.state.allInfo;
-      //const index = this.randomChoice;
       this.setState({
         Name: this.randomChoice()["Species Name"],
       })
@@ -56,8 +58,6 @@ class App extends React.Component{
 
     
 
-
-    
     render() {
         return (
             <div>
@@ -76,3 +76,5 @@ class App extends React.Component{
   export default App;
   ReactDOM.render(<App />, document.getElementById('app'));
   //<img id='image'src={this.state.Image}></img>
+
+  /*Note for future reference, rubber ducking is an incredible tactic for debugging. */

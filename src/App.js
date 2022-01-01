@@ -19,7 +19,10 @@ class App extends React.Component{
         Texture: "",
         Taste: "",
         Status: "",
-        FoodTitle: ""
+        FoodTitle: "",
+        stemWarrior: "https://www.stemwarriorhacks.org/",
+        fishWatch: 'https://www.fishwatch.gov/developers',
+        github: 'https://github.com/mckalechung/Wayward-Zoo'
 
           /* I'm putting all of the key value pairs I deem important into the initial state. 
               I'm also putting in all of the info gathered from the api so I can access it throughout the entire file. 
@@ -120,14 +123,18 @@ class App extends React.Component{
             <p className="titleExplanation">A randomized educational resource to learn about marine life. Created with the Fishwatch api.</p>
           </div>
             <div className="info">
-              <h3 className="callToAction">Click the button below to get the information of a random fish!</h3>
+              <h3 className="callToAction">Click the button below and scroll to get the information for a fish.</h3>
 
-              <div classname='button'>
+              <div classname='button' style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}}>
                 <Button onClick={this.handleClick} ></Button>
               </div>
               
-
-              <h2 id='name'>{this.state.Name}</h2>
+              <hr></hr>
+              <h2 className='name'>{this.state.Name}</h2>
 
                 <section className='images'>
                   <img src={this.state.ImageOne.src}></img>
@@ -140,6 +147,9 @@ class App extends React.Component{
               <h3>{this.state.Name} {this.state.FoodTitle}</h3>
               <p>{this.removeElements(this.state.Texture)}</p>
               <p>{this.removeElements(this.state.Taste)}</p>
+              <br></br>
+              <br></br>
+              
             </div></>
             <footer>
               <h4>Here are some useful links!</h4>

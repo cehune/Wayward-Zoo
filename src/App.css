@@ -118,6 +118,7 @@ a:hover {
   color: #EF9898 
 }
 
+/*responsive */
 
 @media screen and (max-width: 1200px){
   .titleContainer{

@@ -22,7 +22,7 @@ class App extends React.Component{
         FoodTitle: "",
         stemWarrior: "https://www.stemwarriorhacks.org/",
         fishWatch: 'https://www.fishwatch.gov/developers',
-        github: 'https://github.com/mckalechung/Wayward-Zoo'
+        github: 'https://github.com/mckalechung/Wayward-Zoo',
 
           /* I'm putting all of the key value pairs I deem important into the initial state. 
               I'm also putting in all of the info gathered from the api so I can access it throughout the entire file. 
@@ -153,8 +153,11 @@ class App extends React.Component{
             </div></>
             <footer>
               <h4>Here are some useful links!</h4>
-              <section>
-               
+             
+              <section className='footerlinks'>
+                <a href={this.state.stemWarrior} target='_blank'>STEM Warrior Hacks </a>
+                <a href={this.state.fishWatch} target='_blank'>FishWatch API</a>
+                <a href={this.state.github} target='_blank'>My Github</a>
               </section>
                 
             </footer></>
@@ -165,10 +168,6 @@ class App extends React.Component{
 
   export default App;
   ReactDOM.render(<App />, document.getElementById('app'));
-  //<img id='image'src={this.state.Image}></img>
+
 
   /*Note for future reference, rubber ducking is an incredible tactic for debugging. */
-
-  /* <a href={links.stemWarrior} target='_blank'>STEM Warrior Hacks </a>
-                <a href={links.fishWatch} target='_blank'>FishWatch API</a>
-                <a href={links.github} target='_blank'>My Github</a>*/

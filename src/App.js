@@ -27,8 +27,15 @@ class App extends React.Component{
 
     randomChoice() {
       const choice = this.state.allInfo[Math.floor(Math.random()*Object.keys(allInfo).length)];
+      return choice;
     }
     
+    handleClick() {
+      this.setState({
+        Name: this.state.allInfo[this.randomChoice]["Species Name"],
+        Image: this.state.allInfo[this.randomChoice]["Image Gallaery"][0]
+      })
+    }
     
     render() {
         return (

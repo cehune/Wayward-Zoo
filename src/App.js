@@ -8,9 +8,15 @@ class App extends React.Component{
       this.state = {
 
         allInfo: [],
-        Name: "Nothing",
-        Image: [],
-        Number: []
+        Name: "",
+        Image: {},
+        Habitat: "",
+        Biology: "",
+        Texture: "",
+        Taste: "",
+        Status: "",
+        FoodTitle: ""
+
           /* I'm putting all of the key value pairs I deem important into the initial state. 
               I'm also putting in all of the info gathered from the api so I can access it throughout the entire file. 
               I was running into issues earlier with scope, and thought this would work as a solution. */
@@ -44,28 +50,75 @@ class App extends React.Component{
     
     /*This sets the state for each specific key value pair using the information given by th api. It takes the randomly generated 
     array object and uses it's key value pairs. 
+
+    I have to assign this.randomChoice to the variable newAniaml rather than just calling randomChoice. If I dont, then each key value pair will 
+    be randomized.  I'm concatenating the texture and taste since the api json isn't that descriptive, giving strings like, "mild and sweet". 
+    I think this will help the user understand what theyre reading.
+
+    I set food title here so we it only shows after the first click. 
     
     My main issue here was that I forgot to add the brackets after call to randomChoice, and some confusion for how to access 
     the key-value pairs. What helped a lot was to isolate an array object from the api, which was compiled and disorganized. 
     VSC's auto organizer was extremely helpful, as I could immediately visualize the object. */
 
     handleClick() {
-      const newLocal = this.state.allInfo;
+      
+      const newAnimal = this.randomChoice()
       this.setState({
-        Name: this.randomChoice()["Species Name"],
+        Name: newAnimal["Species Name"],
+        Image: newAnimal['Image Gallery'][0],
+        Habitat: newAnimal.Habitat,
+        Biology: newAnimal.Biology,
+        Texture: `Texture: ${newAnimal.Texture}`,
+        Taste: `Taste: ${newAnimal.Taste}`,
+        FoodTitle: " as a food"
       })
+
+
+        /*Conditional to show which species are overfished and therefor threatened. The source was limtied because it
+        didnt outright say which species were endangered. */
+      if (newAnimal["Population Status"].includes('not overfished')){
+        return;
+      }else{
+        this.setState({
+          Status: newAnimal["Population Status"]
+        })
+      }
     }
+
+
+
+    /*Removing the uncessary HTML tags that the api gives through json. You can see isolatedObject.json for referenc to see these tags. */
+    removeElements(input){
+      if ((input===null) || (input===''))
+        return false;
+    else
+        input = input.toString();
+
+          //Replace the stuff in the regular expression to nothing
+    return input.replace( /(<([^>]+)>)/ig, '');
+    }
+    
 
     
 
     render() {
+
+        
+
         return (
             <div>
                 <h1>Random Fish Info Generator</h1>
                 <Button onClick = {this.handleClick}>
         </Button>
-        <h2 id='name'>hi{this.state.Name}</h2>
-        
+        <h2 id='name'>{this.state.Name}</h2>
+        <img src={this.state.Image.src}></img>
+        <section id='habitat'>{this.removeElements(this.state.Habitat)}</section>
+        <p>{this.removeElements(this.state.Biology)}</p> 
+        <p>{this.removeElements(this.state.Status)}</p>
+        <h3>{this.state.Name} {this.state.FoodTitle}</h3>
+          <p>{this.removeElements(this.state.Texture)}</p> 
+          <p>{this.removeElements(this.state.Taste)}</p> 
         
             </div>
         )

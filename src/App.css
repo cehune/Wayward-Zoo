@@ -11,14 +11,13 @@ body,html {
 .titleContainer{
   top: 0;
   margin-top: 0;
-  height: 35rem;
+  height: 32rem;
   background-image: url('./Tim-B-Motivv-Aquarium-Image.jpg');
   background-size: cover;
 } 
 
 .logo{
   height: 7rem;
-  
   padding-left: 1rem;
 }
 
@@ -27,13 +26,13 @@ body,html {
   margin-bottom: 0;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 7rem;
+  font-size: 6rem;
   color: white;
 }
 
 .titleExplanation{
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: white;
   text-align: center;
   padding-left: 10%;
@@ -51,7 +50,7 @@ body,html {
 .callToAction{
   text-align: center;
   padding-top: 2rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
 }
 
@@ -59,13 +58,13 @@ body,html {
 
 .name{
   padding: 3rem 0 1rem 0;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-family: 'Poppins', sans-serif;
   margin: 0;
 }
 
 .images{
-  max-height: 400px;
+  max-height: 350px;
   overflow: hidden;
   display: flex;
   padding-bottom: 1rem;
@@ -78,13 +77,13 @@ img{
 }
 
 p{
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-family: 'Open Sans', sans-serif;
   padding-left: 1rem;
 }
 
 h3{
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   margin-bottom: 0;
 }
 
@@ -96,7 +95,7 @@ footer{
 h4{
   text-align: center;
   color: white;
-  font-size: 2rem;
+  font-size: 1.75rem;
   padding-top: 3rem;
   font-family: 'Poppins', sans-serif;
  
@@ -122,7 +121,7 @@ a:hover {
 
 @media screen and (max-width: 1200px){
   .titleContainer{
-    height: 30rem;
+    height: 39rem;
   }
   .mainTitle {
     margin-top: 0;
@@ -144,13 +143,13 @@ a:hover {
   }
   .images{
     display: block;
-    max-height: 600px;
+    max-height: 550px;
   }
 }
 
 @media screen and (max-width: 800px){
   .titleContainer{
-    height: 28rem;
+    height: 26rem;
   }
   .mainTitle {
     margin-top: 0;

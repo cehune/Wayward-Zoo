@@ -69,7 +69,6 @@ class App extends React.Component{
     VSC's auto organizer was extremely helpful, as I could immediately visualize the object. */
 
     handleClick() {
-      
       const newAnimal = this.randomChoice()
       this.setState({
         Name: newAnimal["Species Name"],
@@ -82,7 +81,6 @@ class App extends React.Component{
         FoodTitle: " as a food"
       })
 
-
         /*Conditional to show which species are overfished and therefor threatened. The source was limtied because it
         didnt outright say which species were endangered. */
       if (newAnimal["Population Status"].includes('not overfished')){
@@ -93,8 +91,6 @@ class App extends React.Component{
         })
       }
     }
-
-
 
     /*Removing the uncessary HTML tags that the api gives through json. You can see isolatedObject.json for referenc to see these tags. */
     removeElements(input){
@@ -108,19 +104,13 @@ class App extends React.Component{
     return input.replace( /(<([^>]+)>)/ig, '');
     }
     
-
-    
-
     render() {
-       
-        
-
         return (
 
           <><><div className="titleContainer">
             <img className="logo" src={mainLogo}></img>
             <h1 className="mainTitle">Wayward Zoo</h1>
-            <p className="titleExplanation">A randomized educational resource to learn about marine life. Created with the Fishwatch api.</p>
+            <p className="titleExplanation">A randomized educational resource to learn about marine life. Created with the Fishwatch API.</p>
           </div>
             <div className="info">
               <h3 className="callToAction">Click the button below and scroll to get the information for a fish.</h3>

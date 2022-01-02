@@ -26,7 +26,9 @@ class App extends React.Component{
 
           /* I'm putting all of the key value pairs I deem important into the initial state. 
               I'm also putting in all of the info gathered from the api so I can access it throughout the entire file. 
-              I was running into issues earlier with scope, and thought this would work as a solution. */
+              I was running into issues earlier with scope, and thought this would work as a solution. 
+              
+              Put links there for the footer since anchor tags cant just use web links*/
 
       }
       this.handleClick = this.handleClick.bind(this); //binding it 
@@ -35,7 +37,8 @@ class App extends React.Component{
     //fetch request for the url
     
     async componentDidMount() {
-        // GET request using fetch with async/await. There is no api key requiered. 
+        // GET request using fetch with async/await. There is no API key requiered. 
+        //Made a heroku proxy to access the API
         const response = await fetch('https://enigmatic-beach-52405.herokuapp.com/https://www.fishwatch.gov/api/species');
         const data = await response.json();
         this.setState({ 
@@ -43,8 +46,8 @@ class App extends React.Component{
         })
     }
 
-    /*Essentially the api information is a massive object split with 700+ different objects containing arrays for each fish species. 
-    I'm just finding a random number in that object length to get the random fish for our user. The returned variable, choice, gives us 
+    /*Essentially the api information is a massive array split with 700+ different objects containing info for each fish species. 
+    I'm just finding a random number in that array length to get the random fish for our user. The returned variable, choice, gives us 
     all of the information for a certain type of fish. 
     
     I had a bit of confusion here because I thought choice was giving us an index rather than a full array value. */
@@ -160,4 +163,4 @@ class App extends React.Component{
   ReactDOM.render(<App />, document.getElementById('app'));
 
 
-  /*Note for future reference, rubber ducking is an incredible tactic for debugging. */
+  /*Note for future reference, rubber ducking is an incredible tactic for debugging. Thank you for looking at my code!*/

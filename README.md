@@ -1,6 +1,8 @@
 ## Inspiration
 For this project, our inspiration was our mutual interest in zoology. While learning about zoology, we noticed how a lot of zoology resources are either aimed at young children or provide an overwhelming about of information, something that we wanted to change while making Wayward Zoo.
 
+See Waywardzoo in action [link](https://waywardzoo.surge.sh/)
+
 ## What it does
 Wayward Zoo is a Web App containing a collection of information about various marine animals. When a user presses the button to learn, Wayward Zoo provides them with a randomized species and interesting information related to it. This information includes name, habitat, biology, texture, taste, and images. If the species is overfished/threatened, Wayward Zoo will specify the conservation status of said species as well.
 

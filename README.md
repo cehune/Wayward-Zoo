@@ -20,14 +20,12 @@ Wayward Zoo uses an HTTPS request to acquire the information from the FishWatch 
 - the functionality of the Web App
 - the Web App's ease of use
 - the fact that we were able to submit a functional application in the time given, especially given our lack of experience
-- making this without a guide
 
 ## What we learned
 - how to use HTTPS requests in React.js
 - general React.js syntax
 - debugging strategies, specifically rubber ducking with React.js Dev Tools
 - how to create a proxy
-- geoducks are disgusting
 
 ## What's next for Wayward Zoo
 Some of the things that we'd like to improve in Wayward Zoo include changing the images of certain species so they are all of the species mentioned and not something else, such as meals or cuts of meat. One of the challenges we had was with random JSON characters so, to improve Wayward Zoo, we'd like to find a way to remove all of these instances.
